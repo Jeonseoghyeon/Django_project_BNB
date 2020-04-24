@@ -1,0 +1,13 @@
+<h1>accounts</h1>
+
+<!-- Q1-4 -->
+<!-- 1)로그인이 되어있다면 -->
+{% if user.is_authenticated %}
+    <h3>{{ user.username }}</h3> <!-- 유저네임 출력 -->
+    <a href="{% url 'accounts:logout' %}">logout</a> <!-- logout 링크 출력 -->
+
+<!-- 2)로그인이 안되어있다면 -->
+{% else %}
+    <a href="{% url 'accounts:signup' %}">signup</a> <!-- signup 링크 출력 -->
+    <a href="{% url 'accounts:login' %}">login</a> <!-- login 링크 출력 -->
+{% endif %}

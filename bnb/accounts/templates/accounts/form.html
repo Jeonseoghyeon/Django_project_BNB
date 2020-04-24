@@ -1,0 +1,16 @@
+<!-- Q1-5 -->
+<!-- accounts/signup 요청일 때 -->
+{% if request.resolver_match.url_name == 'signup' %}
+    <h1>signup</h1> <!-- signup 출력 -->
+
+<!-- accounts/login 요청일 때 -->
+{% elif request.resolver_match.url_name == 'login' %}
+    <h1>login</h1> <!-- login 출력 -->
+{% else %}
+{% endif %}
+
+<form action="" method="POST"> <!-- 해당 페이지로 돌아가기 때문에 action 부분 필요하지 않고, POST 방식으로 보냅니다. -->
+    {% csrf_token %} <!-- POST방식으로 보내기 위한 csrf_token -->
+    {{ form }} <!-- form을 출력 -->
+    <input type="submit">
+</form>
